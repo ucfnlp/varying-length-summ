@@ -17,7 +17,7 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
 ## Demo
 
 ### Source Input:
-```angular2html
+```text
 The Bank of Japan appealed to financial markets to remain calm Friday following the US decision to order Daiwa Bank Ltd. to close its US operations.
 ```
 
@@ -40,7 +40,7 @@ HINT: Since huggingface transformers is alternating very fast, you may need to m
 
 To install pyrouge and transformers, run the command below:
 
-```
+```shell
 pip install pyrouge transformers==2.3.0
 ```
 
@@ -48,7 +48,7 @@ pip install pyrouge transformers==2.3.0
 
 Step 1: clone this repo. Download trained [Our model](), move it to the working folder and uncompress it.
 
-```
+```shell
 git clone https://github.com/ucfnlp/varying-length-summ.git
 mv models.zip varying-length-summ
 cd varying-length-summ
@@ -56,7 +56,7 @@ unzip models.zip
 ```
 
 Step 2: Generating summaries with varying length from a raw input file. 
-```
+```shell
 python run.py --do_test --parallel --input data/input.txt
 ```
 
@@ -79,7 +79,7 @@ HINT: one instance per line
 Step 3: modify the ``test500`` settings in [``settings/dataset/gigaword_cls``](https://github.com/ucfnlp/varying-length-summ/blob/main/settings/dataset/gigaword_cls.json#L30).
 
 Step 4: Run the code below.
-```
+```shell
 python run_classifier.py --do_test --parallel
 ```
 
@@ -89,7 +89,7 @@ It will generate a prediction of admissible probability in ``predict.txt``.
 Step 1: Follow the previous section about generating summaries with multiple length.
 
 Step 2: Run the code below.
-```
+```shell
 python run_rerank.py
 ```
 It will re-rank the summary with length rewards.
