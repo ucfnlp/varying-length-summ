@@ -357,10 +357,10 @@ def test(config):
 
 
     f_in.close()
-    for f in output_files:
+    for f in output_files.values():
         f.close()
 
-    for f in order_files:
+    for f in order_files.values():
         f.close()
 
     saveToPKL("decoded.pkl", decoded)
