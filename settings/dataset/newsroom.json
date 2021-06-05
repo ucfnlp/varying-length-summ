@@ -9,23 +9,23 @@
 		"train":
 		{
 			"name":"train",
-			"path":"../../dataset/newsroom/train",
+			"path":"./data/newsroom/train",
 			"sorted":true,
 			"shuffled":false
 		},
 		"test":
 		{
 			"name":"test",
-			"path":"../../dataset/newsroom/test",
+			"path":"./data/newsroom/test",
 			"sorted":false,
 			"shuffled":false
 		},
 		"valid":
 		{
 			"name":"valid",
-			"path":"../../dataset/newsroom/dev",
+			"path":"./data/newsroom/dev",
 			"sorted":true,
 			"shuffled":false
 		}
-	}	
+	}
 }

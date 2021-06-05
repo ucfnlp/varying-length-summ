@@ -253,38 +253,18 @@ def test(config):
     net.eval()
 
     testSet = Dataset('test500', 1, lambda x: len(x[0]) + len(x[1]), Tokenizer, config.dataOptions, LOG, 'test')
-    total = 0
-    acc = 0
-    err_file = open("error.txt", "w")
-    m = [[0,0], [0, 0]]
+
+    f_predict = open("predict.txt", "w")
     for idx, batch_data in enumerate(testSet):
         srcs, tgts, labels = batch_data
         src_inputs, tgt_inputs, inputs, labels = prepare_data_cls(srcs, tgts, labels, config)
-        total += 1
         with torch.no_grad():
             predicts = net(src_inputs, tgt_inputs, inputs)[0]
-            predict = float(predicts.view(-1).data)
+            predict = int(float(predicts.view(-1).data) >= 0.5)
             label = int(labels.view(-1).data)
-            m[label][int(predict >= 0.5)] += 1
-            if label != int(predict >= 0.5):
-                print(idx, label, int(predict >= 0.5), file=err_file)
-            if (predict >= 0.5) and (label == 1):
-                acc += 1
-            if (predict < 0.5) and (label == 0):
-                acc += 1
-            print(idx, (acc / total * 10000) // 1 / 100)
-    print(acc / total)
-    print(m)
-    p = m[0][0] / (m[0][0] + m[1][0])
-    r = m[0][0] / (m[0][0] + m[0][1])
-    f = 2 * p * r / (p + r)
-    print(p, r, f)
+            print(predict, file=f_predict)
 
-    p = m[1][1] / (m[1][1] + m[0][1])
-    r = m[1][1] / (m[1][1] + m[1][0])
-    f = 2 * p * r / (p + r)
-    print(p, r, f)
-
+    f_predict.close()
 
 def main():
     args = argLoader()

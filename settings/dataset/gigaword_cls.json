@@ -9,28 +9,28 @@
 		"train":
 		{
 			"name":"train",
-			"path":"../../dataset/gigaword_cls/Train",
+			"path":"./data/gigaword_cls/Train",
 			"sorted":true,
 			"shuffled":false
 		},
 		"test":
 		{
 			"name":"test",
-			"path":"../../dataset/gigaword_cls/Test",
+			"path":"./data/gigaword_cls/Test",
 			"sorted":false,
 			"shuffled":false
 		},
 		"valid":
 		{
 			"name":"valid",
-			"path":"../../dataset/gigaword_cls/Valid",
+			"path":"./data/gigaword_cls/Valid",
 			"sorted":true,
 			"shuffled":false
 		},
 		"test500":
 		{
 			"name": "test500",
-			"path": "../../dataset/gigaword_cls/test500",
+			"path": "./data/gigaword_cls/test500",
 			"sorted": false,
 			"shuffled": false
 		}

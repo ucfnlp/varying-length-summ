@@ -12,7 +12,7 @@ from model_roberta import myRobertaForMaskedLM
 from loss import KLDivLoss
 from transformers import AdamW
 from transformers import get_linear_schedule_with_warmup
-from utility import prepare_data_new, save_check_point, loadFromJson, mapping_tokenize, detokenize
+from utility import prepare_data_new, save_check_point, saveToPKL, loadFromJson, mapping_tokenize, detokenize
 from data_process import myDataSet_pretrained as Dataset
 from data_process import myTokenizer
 from searcher import newSearcher
@@ -320,6 +320,8 @@ def test(config):
         output_files[l] = open("summary_" + str(l) + ".txt", "w")
         order_files[l] = open("order_" + str(l) + ".txt", "w")
 
+    decoded = []
+
     for idx, line in enumerate(f_in):
 
         source_ = line.strip().split()
@@ -339,6 +341,7 @@ def test(config):
             }
 
         Answers = mySearcher.search(source, **para)
+        decoded.append(Answers)
 
         for l in range(config.gen_min_len, config.gen_max_len + 1):
             for Ans in Answers:
@@ -352,12 +355,17 @@ def test(config):
                     print(tokens, file=order_files[l])
                     print(orders, file=order_files[l])
 
+
     f_in.close()
     for f in output_files:
         f.close()
 
     for f in order_files:
         f.close()
+
+    saveToPKL("decoded.pkl", decoded)
+
+
 
 def main():
     args = argLoader()
