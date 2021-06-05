@@ -260,7 +260,7 @@ def test(config):
         src_inputs, tgt_inputs, inputs, labels = prepare_data_cls(srcs, tgts, labels, config)
         with torch.no_grad():
             predicts = net(src_inputs, tgt_inputs, inputs)[0]
-            predict = int(float(predicts.view(-1).data) >= 0.5)
+            predict = float(predicts.view(-1).data)
             label = int(labels.view(-1).data)
             print(predict, file=f_predict)
 

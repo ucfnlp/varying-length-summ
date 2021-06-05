@@ -38,21 +38,41 @@ $ cd varying-length-summ
 $ unzip models.zip
 ```
 
-Step 2: Generating summaries with varying length from a raw input file. (please provide a standard reference) 
+Step 2: Generating summaries with varying length from a raw input file. 
 ```
-$ python run.py --do_test --parallel --input data/input.txt --standard data/reference.txt
+$ python run.py --do_test --parallel --input data/input.txt
 ```
 
-HINT: you can modify the code in [run.py]() if you don't have any reference.
+It will generate summaries of varying lengths coupled with its order information.
 
+## For Selecting summaries with best quality binary classifer
 
-## For Selecting summaries with best quality
+Step 1: Follow the previous section about generating summaries with multiple length.
 
-Step 1: Follow the prvious section about generating summaries with multiple length.
+Step 2: Collect test set similar to ``data/gigaword_cls/test500*`` files:
+    1) a source input file ``test500_input.txt``
+    2) a target output file ``test500_output.txt``
+    3) a label for whether the target summary is admissible for the source input. (all 0 if don't have labels)
 
-Step 2: Working on it
+HINT: one instance per line
+
+Step 3: modify the test settings in ``settings/dataset/gigaword_cls``.
+
+Step 4: Run the code below.
+```
+$ python run_classifier.py --do_test --parallel
+```
+
+It will generate a prediction of admissible probability in ``predict.txt``.
+
+## For Selecting summaries with length reward reranking method
+Step 1: Follow the previous section about generating summaries with multiple length.
+
+Step 2: Run the code below.
+```
+$ python run_rerank.py
+```
+It will re-rank the summary with length rewards.
 
 
 ## For Downloading Summaries and Labels of different lengths on 500 sampled instances on gigaword
-
-Working on it
