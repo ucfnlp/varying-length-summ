@@ -50,9 +50,12 @@ It will generate summaries of varying lengths coupled with its order information
 Step 1: Follow the previous section about generating summaries with multiple length.
 
 Step 2: Collect test set similar to ``data/gigaword_cls/test500*`` files:
-    1) a source input file [``test500_input.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_input.txt)
-    2) a target output file [``test500_output.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_output.txt)
-    3) a label file [``test500_label.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_label.txt) for whether the target summary is admissible for the source input. (all 0 if don't have labels)
+
+1) a source input file [``test500_input.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_input.txt)
+
+2) a target output file [``test500_output.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_output.txt)
+
+3) a label file [``test500_label.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_label.txt) for whether the target summary is admissible for the source input. (all 0 if don't have labels)
 
 HINT: one instance per line
 
