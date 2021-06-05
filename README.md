@@ -41,7 +41,7 @@ HINT: Since huggingface transformers is alternating very fast, you may need to m
 To install pyrouge and transformers, run the command below:
 
 ```
-$ pip install pyrouge transformers==2.3.0
+pip install pyrouge transformers==2.3.0
 ```
 
 ## For generating summaries with varying length
@@ -49,15 +49,15 @@ $ pip install pyrouge transformers==2.3.0
 Step 1: clone this repo. Download trained [Our model](), move it to the working folder and uncompress it.
 
 ```
-$ git clone https://github.com/ucfnlp/varying-length-summ.git
-$ mv models.zip varying-length-summ
-$ cd varying-length-summ
-$ unzip models.zip
+git clone https://github.com/ucfnlp/varying-length-summ.git
+mv models.zip varying-length-summ
+cd varying-length-summ
+unzip models.zip
 ```
 
 Step 2: Generating summaries with varying length from a raw input file. 
 ```
-$ python run.py --do_test --parallel --input data/input.txt
+python run.py --do_test --parallel --input data/input.txt
 ```
 
 It will generate summaries of varying lengths coupled with its order information.
@@ -80,7 +80,7 @@ Step 3: modify the ``test500`` settings in [``settings/dataset/gigaword_cls``](h
 
 Step 4: Run the code below.
 ```
-$ python run_classifier.py --do_test --parallel
+python run_classifier.py --do_test --parallel
 ```
 
 It will generate a prediction of admissible probability in ``predict.txt``.
@@ -90,7 +90,7 @@ Step 1: Follow the previous section about generating summaries with multiple len
 
 Step 2: Run the code below.
 ```
-$ python run_rerank.py
+python run_rerank.py
 ```
 It will re-rank the summary with length rewards.
 
