@@ -9,6 +9,10 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
         year={2021}
     }
 
+## Demo
+
+[Demo](http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif)
+
 ## Dependencies
 
 The code is written in Python (v3.7) and Pytorch (v1.7+). We suggest the following enviorment:
