@@ -52,7 +52,7 @@ if __name__ == '__main__':
     f_doc = open("./data/gigaword/test.Ndocument", "r")
     decoded = loadFromPKL("decoded.pkl")
     f_length = open("length.txt", "r")
-    f_out = open("summary_opt_length.txt", "w")
+    f_out = open("summary_rerank.txt", "w")
     config = argLoader()
     Tokenizer = myTokenizer(config)
     for i in range(N):
