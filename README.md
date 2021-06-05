@@ -50,13 +50,13 @@ It will generate summaries of varying lengths coupled with its order information
 Step 1: Follow the previous section about generating summaries with multiple length.
 
 Step 2: Collect test set similar to ``data/gigaword_cls/test500*`` files:
-    1) a source input file ``test500_input.txt``
-    2) a target output file ``test500_output.txt``
-    3) a label for whether the target summary is admissible for the source input. (all 0 if don't have labels)
+    1) a source input file [``test500_input.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_input.txt)
+    2) a target output file [``test500_output.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_output.txt)
+    3) a label file [``test500_label.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/data/gigaword_cls/test500_label.txt) for whether the target summary is admissible for the source input. (all 0 if don't have labels)
 
 HINT: one instance per line
 
-Step 3: modify the test settings in ``settings/dataset/gigaword_cls``.
+Step 3: modify the ``test500`` settings in [``settings/dataset/gigaword_cls``](https://github.com/ucfnlp/varying-length-summ/blob/main/settings/dataset/gigaword_cls.json#L30).
 
 Step 4: Run the code below.
 ```
@@ -76,4 +76,4 @@ It will re-rank the summary with length rewards.
 
 
 ## For Data Downloading (500 inputs x 7 lengths)
-Please refer to 
+Please refer to [this link](https://github.com/ucfnlp/varying-length-summ/tree/main/data/gigaword_cls)
