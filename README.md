@@ -92,7 +92,7 @@ Step 2: Run the code below.
 ```shell
 python run_rerank.py
 ```
-It will re-rank the summary with length rewards.
+It will re-rank the summary with length rewards. The predicted length is in [``length.txt``]()
 
 
 ## For Data Downloading (500 inputs x 7 lengths)
