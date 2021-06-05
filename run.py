@@ -16,7 +16,6 @@ from utility import prepare_data_new, save_check_point, loadFromJson, mapping_to
 from data_process import myDataSet_pretrained as Dataset
 from data_process import myTokenizer
 from searcher import newSearcher
-from evaluation import Rouge
 
 # Setup Random Seeds
 
@@ -27,11 +26,9 @@ torch.manual_seed(seed)
 torch.backends.cudnn.deterministic = True
 torch.backends.cudnn.benchmark = False
 
-
 # Setup LOG File
 
 LOG = mylog(reset=True)
-
 
 def argLoader():
     parser = argparse.ArgumentParser()
@@ -296,13 +293,6 @@ def train(config):
         LOG.log('Epoch Finished.')
         gc.collect()
 
-rouge_options = loadFromJson("./settings/evaluation/evaluation.json")
-
-def RougeScores(hyp, ref):
-    Obj = Rouge(rouge_options["metrics"]["Rouge"])
-    result = Obj.eval([hyp], [ref])
-    return result['rouge_2_f_score']
-
 def test(config):
     best_model = torch.load(config.model)
     Tokenizer = myTokenizer(config)
@@ -324,15 +314,14 @@ def test(config):
     mySearcher = newSearcher(net, config)
 
     f_in = open(config.input, 'r')
-    f_out = open('summary.txt', 'w')
-    f_bout = open('oracle.txt', 'w')
-    f_all = open('all.txt', 'w')
-    f_ord = open('order.txt', 'w')
-    f_std = open(config.standard, 'r')
+    output_files = {}
+    order_files = {}
+    for l in range(config.gen_min_len, config.gen_max_len + 1):
+        output_files[l] = open("summary_" + str(l) + ".txt", "w")
+        order_files[l] = open("order_" + str(l) + ".txt", "w")
 
-    rScores = []
-    rs = []
-    for idx, (line, std) in enumerate(zip(f_in, f_std)):
+    for idx, line in enumerate(f_in):
+
         source_ = line.strip().split()
         source = Tokenizer.tokenize(line.strip())
         mapping = mapping_tokenize(source_, source)
@@ -341,7 +330,6 @@ def test(config):
 
         print(idx)
         print(Tokenizer.decode(source))
-        print(std.strip())
 
         para = {}
         if config.search_method == "lengthBeam":
@@ -351,53 +339,25 @@ def test(config):
             }
 
         Answers = mySearcher.search(source, **para)
-        Answers = sorted(Answers, key=lambda x: -x[0] / len(x[1]))
-        texts = [Tokenizer.decode(Answers[k][1], mapping) for k in range(len(Answers))]
-        rScores_ = [RougeScores(texts[k], std) for k in range(len(Answers))]
-        print(texts)
-        print(texts, file=f_all)
-        print([item[0] for item in Answers])
-        print([item[0] for item in Answers], file=f_all)
-        print([item[1] for item in Answers])
-        print([item[1] for item in Answers], file=f_all)
-        print([item[2] for item in Answers])
-        print([item[2] for item in Answers], file=f_all)
-        print(rScores_)
-        print(rScores_, file=f_all)
 
-        id_pick = 0
-        best_pick = 0
-        best_rScore = 0.0
-        for k in range(len(rScores_)):
-            if rScores_[k] > best_rScore:
-                best_rScore = rScores_[k]
-                best_pick = k
+        for l in range(config.gen_min_len, config.gen_max_len + 1):
+            for Ans in Answers:
+                if len(Ans[1]) == l:
+                    text = Tokenizer.decode(Ans[1], mapping)
+                    tokens = Ans[1]
+                    orders = Ans[2]
+                    print(Ans)
+                    print(text)
+                    print(text, file=output_files[l])
+                    print(tokens, file=order_files[l])
+                    print(orders, file=order_files[l])
 
-        rScores.append(best_rScore)
-        rs.append(rScores_[id_pick])
-        print(texts[id_pick])
-        if texts[id_pick] != "":
-            print(texts[id_pick], file=f_out)
-        else:
-            print(line.strip(), file=f_out)
-        print(texts[best_pick])
-        if texts[best_pick] != "":
-            print(texts[best_pick], file=f_bout)
-        else:
-            print(line.strip(), file=f_bout)
-        print(Answers[id_pick][2])
-        print([Tokenizer.decode([Answers[id_pick][1][item]]) for item in Answers[id_pick][2]])
-        print(Answers[id_pick][2], file=f_ord)
-        print([Tokenizer.decode([Answers[id_pick][1][item]]) for item in Answers[id_pick][2]], file=f_ord)
-        print(rScores_[id_pick], rScores_[best_pick])
-        print(sum(rs)/len(rs), sum(rScores)/len(rScores))
-    print(sum(rScores)/len(rScores))
     f_in.close()
-    f_out.close()
-    f_bout.close()
-    f_std.close()
-    f_all.close()
+    for f in output_files:
+        f.close()
 
+    for f in order_files:
+        f.close()
 
 def main():
     args = argLoader()
