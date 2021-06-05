@@ -46,11 +46,11 @@ pip install pyrouge transformers==2.3.0
 
 ## For generating summaries with varying length
 
-Step 1: clone this repo. Download trained [Our model](), move it to the working folder and uncompress it.
+Step 1: clone this repo. Download trained [Our Model](https://drive.google.com/file/d/12Uewykp8wADypJC3zAe62fIBA7f0U3Nk/view?usp=sharing), move it to the working folder and uncompress it.
 
 ```shell
 git clone https://github.com/ucfnlp/varying-length-summ.git
-mv models.zip varying-length-summ
+mv model.zip varying-length-summ
 cd varying-length-summ
 unzip models.zip
 ```
@@ -92,7 +92,7 @@ Step 2: Run the code below.
 ```shell
 python run_rerank.py
 ```
-It will re-rank the summary with length rewards. The predicted length is in [``length.txt``]()
+It will re-rank the summary with length rewards. The predicted length is in [``length.txt``](https://github.com/ucfnlp/varying-length-summ/blob/main/length.txt)
 
 
 ## For Data Downloading (500 inputs x 7 lengths)
