@@ -355,6 +355,7 @@ def test(config):
                     print(tokens, file=order_files[l])
                     print(orders, file=order_files[l])
 
+    saveToPKL("decoded.pkl", decoded)
 
     f_in.close()
     for f in output_files.values():
@@ -362,10 +363,6 @@ def test(config):
 
     for f in order_files.values():
         f.close()
-
-    saveToPKL("decoded.pkl", decoded)
-
-
 
 def main():
     args = argLoader()
