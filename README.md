@@ -11,7 +11,7 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
 
 ## Demo
 
-[Demo](http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif)
+![Demo](http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif)
 
 ## Dependencies
 
