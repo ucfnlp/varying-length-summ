@@ -75,4 +75,5 @@ $ python run_rerank.py
 It will re-rank the summary with length rewards.
 
 
-## For Downloading Summaries and Labels of different lengths on 500 sampled instances on gigaword
+## For Data Downloading (500 inputs x 7 lengths)
+Please refer to 
