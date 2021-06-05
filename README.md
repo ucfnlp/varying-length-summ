@@ -22,7 +22,7 @@ The Bank of Japan appealed to financial markets to remain calm Friday following 
 ```
 
 Summaries with varying lengths:
-![Demo](http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif)
+<img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif" width="48">
 
 
 ## Dependencies
