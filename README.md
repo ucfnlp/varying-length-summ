@@ -19,7 +19,7 @@ The Bank of Japan appealed to financial markets to remain calm Friday following 
 ```
 
 System Summaries of Varying Lengths ("BoJ" stands for "Bank of Japan"):
-<img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif" width="100%">
+<img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif">
 
 
 ## Presentation Video
