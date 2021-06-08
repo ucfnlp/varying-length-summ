@@ -12,9 +12,12 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
 
 ## Demo
 
+Source Text:
 ```text
 The Bank of Japan appealed to financial markets to remain calm Friday following the US decision to order Daiwa Bank Ltd. to close its US operations.
 ```
+
+Candidate Summaries of Varying Lengths:
 <img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif" width="100%">
 
 
