@@ -2,12 +2,14 @@
 
 We provide the source code for the paper  **"[A New Approach to Overgenerating and Scoring Abstractive Summaries](https://www.aclweb.org/anthology/2021.naacl-main.110.pdf)"** accepted at NAACL'21. If you find the code useful, please cite the following paper.
 
-    @inproceedings{song2021new, 
-        title={A New Approach to Overgenerating and Scoring Abstractive Summaries},
-        author={Song, Kaiqiang and Wang, Bingqing and Feng, Zhe and Liu, Fei},
-        booktitle={Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
-        pages={1392--1404},
-        year={2021}
+    @inproceedings{song-etal-2021-new,
+    title = "A New Approach to Overgenerating and Scoring Abstractive Summaries",
+    author = "Kaiqiang Song and Bingqing Wang and Zhe Feng and Fei Liu",
+    booktitle = "Proceedings of the 2021 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies",
+    year = "2021",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2021.naacl-main.110",
+    pages = "1392--1404",
     }
 
 ## Demo
