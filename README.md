@@ -10,20 +10,19 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
         year={2021}
     }
 
-## Presentation Video
-[![Check Our Presentation Video](http://i2u.world/kqsong/images/varying-length-summ.png)](https://s3.amazonaws.com/pf-upload-01/u-59356/0/2021-05-12/0z43a3u/A%20New%20Approach%20to%20Overgenerating%20and%20Scoring%20Abstractive%20Summaries.mp4)
-
-
 ## Demo
 
 ### Source Input:
 ```text
 The Bank of Japan appealed to financial markets to remain calm Friday following the US decision to order Daiwa Bank Ltd. to close its US operations.
 ```
-
 ### Summaries with varying lengths:
 
-<img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif" width="50%">
+<img src="http://i2u.world/kqsong/images/toy-example-varying-length-summ.gif" width="100%">
+
+
+## Presentation Video
+[![Check Our Presentation Video](http://i2u.world/kqsong/images/varying-length-summ.png)](https://s3.amazonaws.com/pf-upload-01/u-59356/0/2021-05-12/0z43a3u/A%20New%20Approach%20to%20Overgenerating%20and%20Scoring%20Abstractive%20Summaries.mp4)
 
 
 ## Dependencies
