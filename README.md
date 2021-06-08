@@ -9,8 +9,7 @@ We provide the source code for the paper  **"[A New Approach to Overgenerating a
     year = "2021",
     publisher = "Association for Computational Linguistics",
     url = "https://www.aclweb.org/anthology/2021.naacl-main.110",
-    pages = "1392--1404",
-    }
+    pages = "1392--1404"}
 
 ## Demo
 
